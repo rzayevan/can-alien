@@ -143,11 +143,11 @@ void keyPressed() {
       }
       break;
     case DOWN:
-      state = "down";
       if (currentScreen == "level2" && state == "idleRight") {
         level2DownCounter++;
         updateSyrupCounter();
       }
+      state = "down";
     case ENTER:
       started = true;
       if(currentScreen == "spaceshipScreen" && startDialog)
