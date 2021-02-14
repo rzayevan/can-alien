@@ -48,14 +48,19 @@ void drawAlien(boolean moves){
 
   
   }else{
-   martianX = 350;
+   martianX = 450;
   }
   martianY+=jumpSpeed;
   
-  if(martianY<=350 && !onPlatform()){
+  if(!onPlatform()){
     jumpSpeed+=1;
   }else{
-    jumpSpeed=0;
+    if(jumpSpeed<0){
+      jumpSpeed+=1;
+    }else{
+      jumpSpeed=0;
+    }
+    
   }
   
   switch(state) {
@@ -93,7 +98,7 @@ void keyPressed() {
       state="left";
       break;
     case UP:
-      if(martianY>=350 || onPlatform()){
+      if(martianY>=450 || onPlatform()){
         jumpSpeed = -20;
       }
       break;

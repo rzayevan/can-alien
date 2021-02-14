@@ -1,12 +1,12 @@
-int[][] platforms = new int[][] {{500,400,200},{800,400,200}};
-int[][] clothes = new int[][] {{500,350,0,0},{400,350,1,0}};
+int[][] platforms = new int[][] {{500,400,200},{800,400,200},{1050,230,200}};
+int[][] clothes = new int[][] {{500,400,0,0},{400,400,1,0},{800,200,2,0},{1050,100,0,0}};
 
 int collected = 0;
 
 void level1(){
   for(int i = 0; i<15; i+=1){
     image(spaceBg, -x+i*spaceBg.width,0);
-    image(ground,-x+i*ground.width,465);
+    image(ground,-x+i*ground.width,500);
   }
   if(x>=0 && speed<0){
     x+=speed;
@@ -37,7 +37,6 @@ void level1(){
     rect(platforms[i][0]-x,platforms[i][1],platforms[i][2],30);
   }
   
-  rect(martianX, martianY, 10,10);
   
   drawAlien(false);
 }
@@ -46,9 +45,13 @@ void level1(){
 boolean onPlatform(){
   boolean onPlatform = false;
   for(int i = 0; i<platforms.length; i+=1){
-    if(martianX>platforms[i][0]-x-platforms[i][2]/2 && martianX<platforms[i][0]-x+platforms[i][2]/2 && martianY > platforms[i][1] && martianY < platforms[i][1]+30 && currentScreen == "level1"){
+    if(martianX>platforms[i][0]-x-45 && martianX<platforms[i][0]-x+platforms[i][2]-30 && martianY < platforms[i][1]-100 && martianY > platforms[i][1]-130 && currentScreen == "level1"){
       onPlatform = true;
     }
+  }
+  
+  if(martianY>=450){
+  onPlatform=true;
   }
   
   return onPlatform;
