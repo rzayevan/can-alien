@@ -130,11 +130,13 @@ void keyPressed() {
       state="left";
       break;
     case UP:
-      state = "up";
+      
       if (currentScreen != "level2") {
         if(martianY>=450 || onPlatform()){
           jumpSpeed = -20;
         }
+      }else if(currentScreen == "hockeyScreen"){
+        state = "up";
       }
       break;
     case DOWN:
