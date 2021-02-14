@@ -7,6 +7,12 @@ void setup() {
 }
 
 void draw() {
+  //switch(currentScreen) {
+  //  case "startScreen":
+  //    startScreenDraw();
+  //    break;
+
+  
   background(255);
   if(x>=0 && speed<0){
       x+=speed;

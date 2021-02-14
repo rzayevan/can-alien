@@ -11,7 +11,7 @@ PImage bus;
 
 int x = 0;
 float martianX = 400;
-float martianY = 400;
+float martianY = 200;
 Animation martianRight, martianLeft, idleRight,idleLeft;
 
 String cowState = "idleRight";
@@ -39,25 +39,25 @@ void drawAlien(boolean moves){
     if((martianX>0 && speed<0) || (martianX<width-110 && speed>0)){
       martianX+=speed*2;
     }
-    martianY-=jumpSpeed;
+
   
   }else{
    martianX = 400;
-   martianY = 470;
+   martianY = 200;
   }
   
   switch(cowState) {
     case "right":
-      martianRight.display(martianX, martianY, 0.3);
+      martianRight.display(martianX, martianY, 0.1);
       break;
     case "left":
-      martianLeft.display(martianX, martianY, 0.3);
+      martianLeft.display(martianX, martianY, 0.1);
       break;
     case "idleLeft":
-      idleLeft.display(martianX, martianY, 0.15);
+      idleLeft.display(martianX, martianY, 0.1);
       break;
     case "idleRight":
-      idleRight.display(martianX, martianY, 0.15);
+      idleRight.display(martianX, martianY, 0.1);
       break;
     default:
 
