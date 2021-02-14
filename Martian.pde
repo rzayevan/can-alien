@@ -3,7 +3,7 @@ PFont font;
 
 void setup() {
   size(900, 700);
-  spaceBg = loadImage("space.png");
+  spaceBg = loadImage("space.jpg");
   font = createFont("munro.ttf", 40);
 }
 
