@@ -9,11 +9,6 @@ PImage smallPipe;
 PImage emptyPipe;
 PImage bus;
 
-SoundFile calm;
-SoundFile bezos;
-SoundFile zen;
-SoundFile pipeBoi;
-
 int x = 0;
 float martianX = 400;
 float martianY = 400;
@@ -30,12 +25,12 @@ void loadImages() {
   idleRight = new Animation("Idle",2);
   idleLeft = new Animation("LeftIdle",2);
   
-  calm = new SoundFile(this, "Retroland_Recital.wav"); 
-  bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
-  zen = new SoundFile(this, "Digital_Zen.wav"); 
-  pipeBoi = new SoundFile(this, "All_Time_High_Jump.wav"); 
+  //calm = new SoundFile(this, "Retroland_Recital.wav"); 
+  //bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
+  //zen = new SoundFile(this, "Digital_Zen.wav"); 
+  //pipeBoi = new SoundFile(this, "All_Time_High_Jump.wav"); 
 
-  calm.loop();
+  //calm.loop();
 }
 
 
@@ -59,10 +54,10 @@ void drawAlien(boolean moves){
       martianLeft.display(martianX, martianY, 0.3);
       break;
     case "idleLeft":
-      idleRight.display(martianX, martianY, 0.15);
+      idleLeft.display(martianX, martianY, 0.15);
       break;
     case "idleRight":
-      idleLeft.display(martianX, martianY, 0.15);
+      idleRight.display(martianX, martianY, 0.15);
       break;
     default:
 
