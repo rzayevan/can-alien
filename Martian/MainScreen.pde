@@ -177,6 +177,9 @@ void keyPressed() {
       else if(currentScreen == "hockeyScreen") {
        hockeyDialogCounter++;
       }
+      else if (currentScreen == "endingScreen") {
+        endingDialogCounter++; 
+      }
       break;
   }
 }

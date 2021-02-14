@@ -24,5 +24,8 @@ void draw() {
     case "hockeyScreen":
         hockeyScreenDraw();
         break;
+    case "endingScreen":
+        endingDialogScreenDraw();
+        break;
   }
 }
