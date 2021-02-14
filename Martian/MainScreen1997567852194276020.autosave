@@ -11,8 +11,8 @@ PImage ground;
 PImage spaceship;
 PImage beam;
 
+
 PImage[] clothesPics;
-PImage[] syrupPics;
 
 int x = 0;
 float martianX = 400;
@@ -23,8 +23,6 @@ String state = "idleRight";
 int speed = 0;
 int jumpSpeed = 0;
 
-boolean btnPressed = false;
-
 void loadImages() {
   
   martianRight = new Animation("Right", 2);
@@ -33,19 +31,6 @@ void loadImages() {
   idleLeft = new Animation("LeftIdle",2);
   
   clothesPics = new PImage[] {loadImage("Hat.png"),loadImage("Coat.png"),loadImage("Scarf.png")};
-  
-  syrupPics = new PImage[] {
-    loadImage("Straw1.png"),
-    loadImage("Straw2.png"),
-    loadImage("Straw3.png"),
-    loadImage("Straw4.png"),
-    loadImage("Straw5.png"),
-  };
-  
-  for (int i = 0; i < 5; i++) {
-    syrupPics[i].resize(100, 80);
-  }
-
   
   ground = loadImage("Ground.png");
   platformGround = loadImage("Ground.png");
@@ -56,7 +41,8 @@ void loadImages() {
   //pipeBoi = new SoundFile(this, "All_Time_High_Jump.wav"); 
   spaceship = loadImage("Spaceship.png");
   beam = loadImage("Beam.png");
-  beam.resize(200, 200);
+  beam.resize(300, 200);
+
 
 
   //calm.loop();
@@ -111,46 +97,25 @@ void resetAlien(){
 }
 
 void keyPressed() {
-  btnPressed = true;
   switch(keyCode) {    
     case RIGHT:
-      if (currentScreen != "level2") {
-        speed = 2;
-      }
-      else {
-        speed = 0;
-      }
-      
+      speed = 2;
       state = "right";
       break;
     case LEFT:
-       if (currentScreen != "level2") {
-        speed = -2;
-      }
-      else {
-        speed = 0;
-      }
+      speed = -2;
       state="left";
       break;
     case UP:
-      state = "up";
-      if (currentScreen != "level2") {
-        if(martianY>=450 || onPlatform()){
-          jumpSpeed = -20;
-        }
+      if(martianY>=450 || onPlatform()){
+        jumpSpeed = -20;
       }
       break;
-    case DOWN:
-      state = "down";
-      if (currentScreen == "level2" && state == "idleRight") {
-        level2DownCounter++;
-        updateSyrupCounter();
-      }
     case ENTER:
       started = true;
       if(currentScreen == "spaceshipScreen")
       {
-       spaceshipDialogCounter++; 
+         introSpaceshipState++; 
       }
       break;
   }
