@@ -4,6 +4,7 @@ void setup() {
   size(900, 700);
   loadImages();
   titleScreenSetup();
+  frameRate(60);
 }
 
 void draw() {

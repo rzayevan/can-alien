@@ -11,11 +11,12 @@ PImage ground;
 PImage spaceship;
 PImage beam;
 PImage dialogBox;
+PImage todoList;
 
 PImage[] clothesPics;
 PImage[] syrupPics;
 
-int x = 0;
+float x = 0;
 float martianX = 400;
 float martianY = 350;
 Animation martianRight, martianLeft, idleRight,idleLeft;
@@ -60,7 +61,9 @@ void loadImages() {
   beam.resize(200, 200);
   dialogBox = loadImage("DialogBox.png");
   dialogBox.resize(900, 100);
-
+  todoList = loadImage("TodoList.png");
+  todoList.resize(500,600);
+  
   //calm.loop();
 }
 
@@ -76,7 +79,6 @@ void drawAlien(boolean moves){
    martianX = 450;
   }
   martianY+=jumpSpeed;
-  
   if(!onPlatform()){
     jumpSpeed+=1;
   }else{
@@ -91,15 +93,23 @@ void drawAlien(boolean moves){
   switch(state) {
     case "right":
       martianRight.display(martianX, martianY, 0.1);
+      if(speed<3){
+        speed += 1;
+      }
       break;
     case "left":
       martianLeft.display(martianX, martianY, 0.1);
+      if(speed>-3){
+        speed -= 1;
+      }
       break;
     case "idleLeft":
       idleLeft.display(martianX, martianY, 0.1);
+      speed=0;
       break;
     case "idleRight":
       idleRight.display(martianX, martianY, 0.1);
+      speed=0;
       break;
     default:
 
@@ -112,34 +122,24 @@ void resetAlien(){
   martianX = 400;
 }
 
+
 void keyPressed() {
   btnPressed = true;
   switch(keyCode) {    
     case RIGHT:
-      if (currentScreen != "level2") {
-        speed = 2;
-      }
-      else {
-        speed = 0;
-      }
-      
       state = "right";
       break;
     case LEFT:
-       if (currentScreen != "level2") {
-        speed = -2;
-      }
-      else {
-        speed = 0;
-      }
       state="left";
       break;
     case UP:
-      state = "up";
+      
       if (currentScreen != "level2") {
         if(martianY>=450 || onPlatform()){
           jumpSpeed = -20;
         }
+      }else if(currentScreen == "hockeyScreen"){
+        state = "up";
       }
       break;
     case DOWN:
@@ -169,7 +169,6 @@ void keyPressed() {
 
 void keyReleased() {
   if(keyCode!=38){
-    speed=0;
     if(state=="right"){
           state="idleRight";
     }else if(state=="left"){

@@ -1,5 +1,5 @@
-int[][] platforms = new int[][] {{500,400,200},{800,400,200},{1050,230,200}};
-int[][] clothes = new int[][] {{500,400,0,0},{400,400,1,0},{800,200,2,0},{1050,100,0,0}};
+int[][] platforms = new int[][] {{500,400,200},{750,150,200},{800,400,200},{1050,230,200},{1300,270,200}};
+int[][] clothes = new int[][] {{500,250,0,0},{800,400,1,0},{800,270,2,0},{1050,100,0,0},{1300,140,2,0},{1300,400,2,0},{750,20,1,0}};
 
 int collected = 0;
 
@@ -26,7 +26,7 @@ void level1(){
       image(clothesPics[clothes[i][2]], clothes[i][0]-x,clothes[i][1]);
     }
     //Collecting
-    if(clothes[i][3]==0 && martianX > clothes[i][0]-x && martianX < clothes[i][0]-x + clothesPics[clothes[i][2]].width && martianY > clothes[i][1] && martianY < clothes[i][1] + clothesPics[clothes[i][2]].height){
+    if(clothes[i][3]==0 && martianX > clothes[i][0]-x && martianX < clothes[i][0]-x + clothesPics[clothes[i][2]].width && martianY > clothes[i][1] && martianY < clothes[i][1] + clothesPics[clothes[i][2]].height/2){
       clothes[i][3] = 1;
       collected++;
     }
@@ -41,6 +41,10 @@ void level1(){
     rect(platforms[i][0]-x,platforms[i][1]+5,platforms[i][2],19);
   }
   
+  
+  if(collected>=clothes.length){
+    fade();
+  }
   
   drawAlien(false);
 }
