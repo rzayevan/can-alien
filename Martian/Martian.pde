@@ -2,18 +2,22 @@ import processing.sound.*;
 SoundFile musicFile; 
 String musicName = "game.mp3";
 String musicPath = "..\\audio\\game.mp3";
+Sound s;
 
 void setup() {
   musicPath = sketchPath(musicPath);
   musicFile  = new SoundFile(this, musicPath);
   musicFile.play();
+  
   size(900, 700);
   loadImages();
   titleScreenSetup();
   frameRate(60);
+  s = new Sound(this);
 }
 
 void draw() {
+  s.volume(0.1);
   switch(currentScreen) {
     case "titleScreen":
         titleScreenDraw();
