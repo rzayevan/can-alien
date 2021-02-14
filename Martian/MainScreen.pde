@@ -85,7 +85,9 @@ void keyPressed() {
       state="left";
       break;
     case UP:
-      jumpSpeed = -15;
+      if(martianY>=350){
+        jumpSpeed = -15;
+      }
       break;
     case ENTER:
       started = true;
