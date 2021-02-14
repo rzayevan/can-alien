@@ -1,4 +1,4 @@
-# Cowgary
+# Can-Alien
 This game was created for [CalgaryHacks 2021]
 
 ## Installation Instructions
