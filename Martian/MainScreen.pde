@@ -20,6 +20,8 @@ String state = "idleRight";
 int speed = 0;
 int jumpSpeed = 0;
 
+boolean btnPressed = false;
+
 void loadImages() {
   
   martianRight = new Animation("Right", 2);
@@ -89,6 +91,7 @@ void resetAlien(){
 }
 
 void keyPressed() {
+  btnPressed = true;
   switch(keyCode) {    
     case RIGHT:
       speed = 2;
@@ -99,12 +102,17 @@ void keyPressed() {
       state="left";
       break;
     case UP:
+      state = "up";
       if(martianY>=450 || onPlatform()){
         jumpSpeed = -20;
       }
       break;
+    case DOWN:
+      state = "down";
+      break;
     case ENTER:
       started = true;
+      changeScreens();
       break;
   }
 }
