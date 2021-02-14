@@ -12,6 +12,7 @@ PImage spaceship;
 PImage beam;
 PImage dialogBox;
 PImage todoList;
+PImage mountains;
 PImage bar;
 
 
@@ -60,6 +61,7 @@ void loadImages() {
   ground = loadImage("Ground.png");
   platformGround = loadImage("Ground.png");
   platformGround.resize(200,30);
+  mountains = loadImage("Canada-Flag.png");
   //calm = new SoundFile(this, "Retroland_Recital.wav"); 
   //bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
   //zen = new SoundFile(this, "Digital_Zen.wav"); 
@@ -165,18 +167,25 @@ void keyPressed() {
       }
       else if (currentScreen == "hockeyScreen") {
         state = "down";
-    }
+      }
+      break;
     case ENTER:
       started = true;
       if(currentScreen == "spaceshipScreen" && startDialog)
       {
        spaceshipDialogCounter++; 
-      }
+      } 
       else if (currentScreen == "level2" && !level2DialogueFinished) {
         level2DialogueCounter++;
       }
       else if (currentScreen == "level2" && level2Win && !level2GoToNext) {
         updateLevel2Win();
+      }
+      else if(currentScreen == "hockeyScreen") {
+       hockeyDialogCounter++;
+      }
+      else if (currentScreen == "endingScreen") {
+        endingDialogCounter++; 
       }
       break;
   }
