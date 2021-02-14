@@ -11,7 +11,7 @@ PImage bus;
 
 int x = 0;
 float martianX = 400;
-float martianY = 200;
+float martianY = 350;
 Animation martianRight, martianLeft, idleRight,idleLeft;
 
 String state = "idleRight";
@@ -43,7 +43,13 @@ void drawAlien(boolean moves){
   
   }else{
    martianX = 350;
-   martianY = 350;
+  }
+  martianY+=jumpSpeed;
+  
+  if(martianY<=350){
+    jumpSpeed+=1;
+  }else{
+    jumpSpeed=0;
   }
   
   switch(state) {
@@ -69,17 +75,20 @@ void resetAlien(){
 }
 
 void keyPressed() {
-  if(currentScreen == "startScreen" && keyCode == ENTER){
-    started = true;
-  }
-  
-  switch(keyCode) {    case RIGHT:
+  switch(keyCode) {    
+    case RIGHT:
       speed = 1;
       state = "right";
       break;
     case LEFT:
       speed = -1;
       state="left";
+      break;
+    case UP:
+      jumpSpeed = -15;
+      break;
+    case ENTER:
+      started = true;
       break;
   }
 }
