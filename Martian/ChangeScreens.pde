@@ -13,6 +13,8 @@ void changeScreens(){
       hockeyScreenSetup();
       currentScreen = "hockeyScreen";
       break;
+    case "level2":
+      level2();
 
   }
 }

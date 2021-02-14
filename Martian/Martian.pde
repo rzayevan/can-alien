@@ -14,6 +14,9 @@ void draw() {
     case "level1":
         level1();
         break;
+    case "level2":
+        level2();
+        break;
     case "hockeyScreen":
         hockeyScreenDraw();
         break;
