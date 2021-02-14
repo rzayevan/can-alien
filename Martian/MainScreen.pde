@@ -25,8 +25,8 @@ int jumpSpeed = 0;
 
 void loadImages() {
   
-  martianRight = new Animation("right", 2);
-  martianLeft = new Animation("left", 2);
+  martianRight = new Animation("Right", 2);
+  martianLeft = new Animation("Left", 2);
   idleRight = new Animation("Idle",2);
   idleLeft = new Animation("LeftIdle",2);
   
