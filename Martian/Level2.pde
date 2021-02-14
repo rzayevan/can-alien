@@ -23,6 +23,7 @@ boolean level2GameStart = false;
 
 void level2Setup() {
   wearClothes();
+  dialogBox.resize(900, 100);
 }
 
 void level2(){
@@ -160,6 +161,7 @@ void level2Dialogue1()
 void level2Dialogue2()
 {
   image(dialogBox, dialogPosX, dialogPosY);
+  textFont(font, 30);
   switch(level2DialogueCounter2)
   {
      case 0:
