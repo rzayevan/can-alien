@@ -1,6 +1,12 @@
 import processing.sound.*; 
+SoundFile musicFile; 
+String musicName = "game.mp3";
+String musicPath = "..\\audio\\game.mp3";
 
 void setup() {
+  musicPath = sketchPath(musicPath);
+  musicFile  = new SoundFile(this, musicPath);
+  musicFile.play();
   size(900, 700);
   loadImages();
   titleScreenSetup();

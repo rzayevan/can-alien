@@ -161,7 +161,7 @@ void keyPressed() {
       break;
     case DOWN:
       if (currentScreen == "level2" && state == "idleRight") {
-        gameStart = true;
+        level2GameStart = true;
         level2DownCounter++;
         updateSyrupCounter();
       }
@@ -175,8 +175,11 @@ void keyPressed() {
       {
        spaceshipDialogCounter++; 
       } 
-      else if (currentScreen == "level2" && !level2DialogueFinished) {
-        level2DialogueCounter++;
+      else if (currentScreen == "level2" && !level2DialogueFinished1) {
+        level2DialogueCounter1++;
+      }
+      else if (currentScreen == "level2" && level2DialogueFinished1 && !level2DialogueFinished2) {
+        level2DialogueCounter2++;
       }
       else if (currentScreen == "level2" && level2Win && !level2GoToNext) {
         updateLevel2Win();
