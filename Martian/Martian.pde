@@ -12,7 +12,7 @@ void draw() {
         titleScreenDraw();
         break;
     case "startScreen":
-        startScreenDraw();
+        level1();
         break;
   }
 }

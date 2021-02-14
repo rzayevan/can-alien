@@ -14,7 +14,7 @@ float martianX = 400;
 float martianY = 200;
 Animation martianRight, martianLeft, idleRight,idleLeft;
 
-String cowState = "idleRight";
+String state = "idleRight";
 int speed = 0;
 int jumpSpeed = 0;
 
@@ -42,11 +42,11 @@ void drawAlien(boolean moves){
 
   
   }else{
-   martianX = 400;
-   martianY = 200;
+   martianX = 350;
+   martianY = 350;
   }
   
-  switch(cowState) {
+  switch(state) {
     case "right":
       martianRight.display(martianX, martianY, 0.1);
       break;
@@ -64,7 +64,7 @@ void drawAlien(boolean moves){
   }
 }
 
-void resetCow(){
+void resetAlien(){
   martianX = 400;
 }
 
@@ -75,11 +75,11 @@ void keyPressed() {
   
   switch(keyCode) {    case RIGHT:
       speed = 1;
-      cowState = "right";
+      state = "right";
       break;
     case LEFT:
       speed = -1;
-      cowState="left";
+      state="left";
       break;
   }
 }
@@ -88,10 +88,10 @@ void keyPressed() {
 void keyReleased() {
   if(keyCode!=38){
     speed=0;
-    if(cowState=="right"){
-          cowState="idleRight";
-    }else if(cowState=="left"){
-          cowState="idleLeft";
+    if(state=="right"){
+          state="idleRight";
+    }else if(state=="left"){
+          state="idleLeft";
     }
   }
 }
