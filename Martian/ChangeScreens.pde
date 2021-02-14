@@ -7,7 +7,11 @@ void changeScreens(){
   x=0;
   switch(currentScreen) {
     case "titleScreen":
-      currentScreen = "level2";
+      currentScreen = "startScreen";
+      break;
+    case "startScreen":
+      hockeyScreenSetup();
+      currentScreen = "hockeyScreen";
       break;
 
   }
