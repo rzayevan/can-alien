@@ -7,19 +7,17 @@ void setup() {
 }
 
 void draw() {
-  //switch(currentScreen) {
-  //  case "startScreen":
-  //    startScreenDraw();
-  //    break;
-
-  
-  background(255);
-  if(x>=0 && speed<0){
-      x+=speed;
-    }else if(x<1000 && speed>0){
-      x+=speed;
-    }
-    drawAlien(true);
+  switch(currentScreen) {
+    case "startScreen":
+      background(255);
+      if(x>=0 && speed<0){
+          x+=speed;
+        }else if(x<1000 && speed>0){
+          x+=speed;
+        }
+        drawAlien(true);
+        break;
+  }
 }
 //PImage spaceBg;
 //PFont font;
