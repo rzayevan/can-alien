@@ -11,7 +11,7 @@ PImage ground;
 
 PImage[] clothesPics;
 
-int x = 0;
+float x = 0;
 float martianX = 400;
 float martianY = 350;
 Animation martianRight, martianLeft, idleRight,idleLeft;
@@ -52,7 +52,6 @@ void drawAlien(boolean moves){
    martianX = 450;
   }
   martianY+=jumpSpeed;
-  
   if(!onPlatform()){
     jumpSpeed+=1;
   }else{
@@ -67,15 +66,23 @@ void drawAlien(boolean moves){
   switch(state) {
     case "right":
       martianRight.display(martianX, martianY, 0.1);
+      if(speed<3){
+        speed += 1;
+      }
       break;
     case "left":
       martianLeft.display(martianX, martianY, 0.1);
+      if(speed>-3){
+        speed -= 1;
+      }
       break;
     case "idleLeft":
       idleLeft.display(martianX, martianY, 0.1);
+      speed=0;
       break;
     case "idleRight":
       idleRight.display(martianX, martianY, 0.1);
+      speed=0;
       break;
     default:
 
@@ -88,14 +95,13 @@ void resetAlien(){
   martianX = 400;
 }
 
+
 void keyPressed() {
   switch(keyCode) {    
     case RIGHT:
-      speed = 2;
       state = "right";
       break;
     case LEFT:
-      speed = -2;
       state="left";
       break;
     case UP:
@@ -112,7 +118,6 @@ void keyPressed() {
 
 void keyReleased() {
   if(keyCode!=38){
-    speed=0;
     if(state=="right"){
           state="idleRight";
     }else if(state=="left"){
