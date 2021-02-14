@@ -148,11 +148,15 @@ void keyPressed() {
         updateSyrupCounter();
       }
       state = "down";
+      break;
     case ENTER:
       started = true;
       if(currentScreen == "spaceshipScreen" && startDialog)
       {
        spaceshipDialogCounter++; 
+      } 
+      if(currentScreen == "hockeyScreen") {
+       hockeyDialogCounter++;
       }
       break;
   }
