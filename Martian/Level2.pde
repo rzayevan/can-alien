@@ -1,20 +1,20 @@
 int syrupCoordinatesX = 525;
-int syrupCoordinatesY = 525;
+float syrupCoordinatesY = 525;
 
 int level2DownCounter = 1;
 int syrupLevel = 0;
 
-int level2DialogueCounter1 = 0; 
+int level2DialogueCounter1 = 0;
 boolean level2DialogueFinished1 = false;
 
-int level2DialogueCounter2 = 0; 
+int level2DialogueCounter2 = 0;
 boolean level2DialogueFinished2 = false;
 
 boolean level2Win = false;
 boolean level2GoToNext = false;
 
 int instructionArrowCoordinatesX = 470;
-int instructionArrowCoordinatesY = 400;
+float instructionArrowCoordinatesY = 400;
 
 int level2FrameCounter = 0;
 int level2ArrowIndex = 0;
@@ -23,6 +23,9 @@ boolean level2GameStart = false;
 
 void level2Setup() {
   wearClothes();
+  syrupCoordinatesY = martianY + 60;
+  instructionArrowCoordinatesY = martianY - 80;
+  dialogBox.resize(900, 100);
 }
 
 void level2(){
@@ -30,54 +33,52 @@ void level2(){
   for(int i = 0; i<15; i+=1){
     image(bar, -x+i*spaceBg.width, 0);
   }
-  
-  image(syrupPics[syrupLevel], syrupCoordinatesX, martianY + 60);
-  
-  
-  level2DrawAlien();
-  
 
-  
+  image(syrupPics[syrupLevel], syrupCoordinatesX, syrupCoordinatesY);
+
+
+  level2DrawAlien();
+
+
+
   if(!level2DialogueFinished1)
   {
-   level2Dialogue1(); 
+   level2Dialogue1();
   }
-  if (level2Win) {
-    
-    level2Dialogue2(); 
-    
-    //Go to next page  
+  else if (level2Win) {
+
+    level2Dialogue2();
+
+    //Go to next page
     if(level2Win && level2DialogueFinished2 && level2GoToNext){
       fade();
     }
   }
   else {
-    if (!level2GameStart) {
-        fill(0,255,0);
-        text("PRESS DOWN TO DRINK!", 350,250);
-        drawArrow();
+    fill(0,255,0);
+    text("Press down to drink!", 350,250);
+    drawArrow();
+
+    if (!level2Win) {
+      drawArrow();
     }
-    else {
-      if (!level2Win) {
-        drawArrow();
-      }
-      
-     if (syrupLevel >= 4) {
-        level2Win = true;
-      }
+
+   if (syrupLevel >= 4) {
+      level2Win = true;
     }
+
   }
-  
+
   level2FrameCounter++;
 }
 
 void drawArrow() {
-   if (level2FrameCounter > 40) {
+   if (level2FrameCounter > 20) {
      level2FrameCounter = 0;
      level2ArrowIndex = (level2ArrowIndex == 0) ? 1 : 0;
    }
-  
-   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, martianY - 80); 
+
+   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, instructionArrowCoordinatesY);
 }
 
 void updateSyrupCounter() {
@@ -87,19 +88,18 @@ void updateSyrupCounter() {
 }
 
 void updateLevel2Win() {
-  println("why");
   if (level2Win) {
     level2GoToNext = true;
   }
 }
-  
+
 
 void level2DrawAlien(){
 
    martianX = 450;
-  
+
   martianY+=jumpSpeed;
-  
+
   if(!onPlatform()){
     jumpSpeed+=1;
   }else{
@@ -108,9 +108,9 @@ void level2DrawAlien(){
     }else{
       jumpSpeed=0;
     }
-    
+
   }
-  
+
   switch(state) {
     case "right":
       martianRight.display(martianX, martianY, 0.1);
@@ -131,6 +131,7 @@ void level2DrawAlien(){
 
 void level2Dialogue1()
 {
+  textFont(font, 30);
   image(dialogBox, dialogPosX, dialogPosY);
   switch(level2DialogueCounter1)
   {
@@ -160,6 +161,7 @@ void level2Dialogue1()
 void level2Dialogue2()
 {
   image(dialogBox, dialogPosX, dialogPosY);
+  textFont(font, 30);
   switch(level2DialogueCounter2)
   {
      case 0:
