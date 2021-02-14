@@ -34,7 +34,7 @@ void endingDialogScreenDraw()
        text("Maybe Stanley will lend me his cup.  Perhaps the Queen would like to", dialogTextPosX, dialogTextPosY);
        text("join me.", dialogTextPosX, dialogTextPosY + 35);
        break;
-     case 4 : 
+     default: 
        text("So long for now Canada!  May you stay glorious and free.", dialogTextPosX, dialogTextPosY);
        drawAlienEnd = false;
        if(!beamUpFinished)

@@ -25,6 +25,7 @@ void changeScreens(){
       currentScreen="endingScreen";
       break;
    case "endingScreen":
+      creditScreen();
       currentScreen="creditScreen";
       break;
   }
