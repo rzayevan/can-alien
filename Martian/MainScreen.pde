@@ -69,6 +69,13 @@ void loadImages() {
   //calm.loop();
 }
 
+void wearClothes() {
+  println("Help");
+  martianRight = new Animation("ClothedRight_Walking", 2);
+  martianLeft = new Animation("ClothedLeft_Walking", 2);
+  idleRight = new Animation("ClothedRight_Idle", 2);
+  idleLeft = new Animation("ClothedLeft_Idle", 2);
+}
 
 void drawAlien(boolean moves){
   if(moves){
