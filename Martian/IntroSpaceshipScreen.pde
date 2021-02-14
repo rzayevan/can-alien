@@ -2,12 +2,12 @@ int yPosSpaceship = 0;
 boolean startDialog = false;
 int spaceshipDialogCounter = 0;
 int beamPosY = 300;
-int spaceshipDialogMax = 3;
+int spaceshipDialogMax = 6;
 
 int dialogPosX = 0;
 int dialogPosY = 600;
 int dialogTextPosX = 30;
-int dialogTextPosY = 650;
+int dialogTextPosY = 640;
 
 void introSpaceshipScreenSetup() {
   size(900, 700);
@@ -49,6 +49,7 @@ void introSpaceshipScreenDraw() {
 void spaceshipDialog()
 {
   image(dialogBox, dialogPosX, dialogPosY);
+  textFont(font, 30);
   switch(spaceshipDialogCounter)
   {
      case 0:
@@ -64,5 +65,39 @@ void spaceshipDialog()
        fill(0,0,0);
        text("Alright, let's not waste a single nanosecond!", dialogTextPosX, dialogTextPosY);
        break;
+     case 3:
+       drawTodoList();
+       break;
+     case 4:
+       drawTodoList();
+       fill(0,0,0);
+       text("First I need to get me some human clothes.  I don’t want anyone", dialogTextPosX, dialogTextPosY);
+       text("thinking I’m a tourist or anything.", dialogTextPosX, dialogTextPosY + 35);
+       break;
+     case 5:
+       drawTodoList();
+       text("Besides, it’s as cold as Neptune out here!", dialogTextPosX, dialogTextPosY);
+       break;
   }
+}
+
+void drawTodoList()
+{
+  int todoListXPos = 50;
+  int todoListYpos = 50;
+  int todoListTextXPos = todoListXPos + 100;
+  int todoListTextYPos = todoListYpos + 120;
+
+  
+  image(todoList, todoListXPos, todoListYpos);
+  fill(255,0,0);
+  textFont(font, 50);
+  text("TODO:", todoListTextXPos, todoListTextYPos);
+  fill(0,0,0);
+  textFont(font, 40);
+  text("- DRESS", todoListTextXPos + 10, todoListTextYPos + 50);
+  text("- EAT", todoListTextXPos + 10, todoListTextYPos + 100);
+  text("- CHEER", todoListTextXPos + 10, todoListTextYPos + 150);
+  textFont(font, 30);
+
 }
