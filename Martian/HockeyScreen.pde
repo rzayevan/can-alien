@@ -34,13 +34,7 @@ void hockeyScreenSetup() {
   btnPressed = false;
 }
 
-void hockeyScreenDraw() {
-  if (success){
-    time = millis();
-   // while(millis() - time <= wait){}
-    success = false;
-  }
-  
+void hockeyScreenDraw() {  
   image(hockeyBg, 0,0);
   textFont(font, 40);
   image(ddr_blank, 50,310);
@@ -50,7 +44,8 @@ void hockeyScreenDraw() {
   text(str(score), 820, 320);
   
   if (score >= 500) {
-    image(ddr_down, 200, 200); // yay
+    fill(0,255,0);
+    text("YAY!", 450,250);
   } else {
     counterL = dropArrow(ddr_left, targetL, "left", counterL);
     counterR = dropArrow(ddr_right, targetR, "right", counterR);
@@ -63,8 +58,6 @@ int dropArrow(PImage arrow, int pos, String direction, int counter)  {
   image(arrow, pos, counter);
   if (counter >= 375 && counter <= 385 && isButtonPressed(direction)) {
     score+=50;
-    success = true;
-    image(ddr_down, 200, 200); // yay
     counter = int(random(200))-200;
   } else if (counter > 600){
     counter = int(random(200))-200;
@@ -75,11 +68,7 @@ int dropArrow(PImage arrow, int pos, String direction, int counter)  {
 }
 
 boolean isButtonPressed(String direction) {
-  if (!btnPressed) {
-    return false;
-  }
-  
-  if (state == direction) {
+  if (btnPressed && state == direction) {
     return true;
   }
   
