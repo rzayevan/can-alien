@@ -13,9 +13,9 @@ int targetU = 170;
 int targetR = 230;
 int score = 0;
 int counterL = int(random(200))-200;
-int counterR = int(random(200))-200;
-int counterU = int(random(200))-200;
-int counterD = int(random(200))-200;
+int counterR = int(random(200))-200 + 20;
+int counterU = int(random(200))-200 + 40;
+int counterD = int(random(200))-200 + 60;
 boolean success = false;
 
 int time;
@@ -38,18 +38,26 @@ void hockeyScreenSetup() {
   font = createFont("munro.ttf", 40);
   btnPressed = false;
   hockeyDialogCounter = 0;
+  
+  image(hockeyBg, 0,0);
+  image(alien, 520,-3);
+  image(ddr_blank, 50,310);
+  hockeyInstructions();
 }
 
 void hockeyScreenDraw() {  
   image(hockeyBg, 0,0);
   image(alien, 520,-3);
+  textFont(font, 30);
+  fill(0,255,0);
+  text("Score 300 by hitting the matching arrow keys", 40, 315);
   textFont(font, 40);
   image(ddr_blank, 50,310);
   
   fill(255,255,255);
   text("Score: ", 700, 320);
   text(str(score), 820, 320);
-  
+    
   if (score >= 300) {
     fill(0,255,0);
     hockeyDialog();
@@ -82,12 +90,15 @@ boolean isButtonPressed(String direction) {
   return false;
 }
 
-void hockeyDialog()
-{
+void hockeyInstructions() {
+  dialogBox.resize(400,400);
+  image(dialogBox, 450, 250);
+}
+
+void hockeyDialog() {
   dialogBox.resize(900,200);
   image(dialogBox, 0, 500);
-  switch(hockeyDialogCounter)
-  {
+  switch(hockeyDialogCounter) {
      case 0:
        fill(0,0,0);
        text("Go team go!  What a thrilling sport!", 40, 570);
