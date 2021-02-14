@@ -5,7 +5,7 @@ int collected = 0;
 
 void level1(){
   for(int i = 0; i<15; i+=1){
-    image(spaceBg, -x+i*spaceBg.width,0);
+    image(mountains, -x+i*mountains.width,0);
     image(ground,-x+i*ground.width,500);
   }
   if(x>=0 && speed<0){
@@ -41,12 +41,13 @@ void level1(){
     rect(platforms[i][0]-x,platforms[i][1]+5,platforms[i][2],19);
   }
   
-  
-  if(collected>=clothes.length){
-    fade();
-  }
+
   
   drawAlien(false);
+  
+    if(collected>=clothes.length){
+    fade();
+  }
 }
 
 

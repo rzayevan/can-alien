@@ -18,7 +18,7 @@ void changeScreens(){
       currentScreen="level2";
       break;
     case "level2":
-      level2();
+      level2Setup();
       currentScreen="hockeyScreen";
       break;
   }

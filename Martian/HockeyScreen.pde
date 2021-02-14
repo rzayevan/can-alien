@@ -82,7 +82,6 @@ void hockeyDialog()
 {
   dialogBox.resize(900,200);
   image(dialogBox, 0, 500);
-  println(hockeyDialogCounter);
   switch(hockeyDialogCounter)
   {
      case 0:
