@@ -12,6 +12,7 @@ PImage spaceship;
 PImage beam;
 PImage dialogBox;
 PImage todoList;
+PImage bar;
 
 PImage[] clothesPics;
 PImage[] syrupPics;
@@ -63,6 +64,7 @@ void loadImages() {
   dialogBox.resize(900, 100);
   todoList = loadImage("TodoList.png");
   todoList.resize(500,600);
+  bar = loadImage("Bar.png");
   
   //calm.loop();
 }
