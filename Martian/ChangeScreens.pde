@@ -12,6 +12,9 @@ void changeScreens(){
       break;
     case "spaceshipScreen":
       hockeyScreenSetup();
+      currentScreen="level1";
+      break;
+    case "level1":
       currentScreen="level2";
       break;
     case "level2":
