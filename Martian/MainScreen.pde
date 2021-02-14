@@ -69,6 +69,10 @@ void resetAlien(){
 }
 
 void keyPressed() {
+  if(currentScreen == "startScreen" && keyCode == ENTER){
+    started = true;
+  }
+  
   switch(keyCode) {    case RIGHT:
       speed = 1;
       state = "right";

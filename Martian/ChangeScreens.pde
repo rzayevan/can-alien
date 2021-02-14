@@ -1,4 +1,4 @@
-String currentScreen = "startScreen";
+String currentScreen = "titleScreen";
 
 
 void changeScreens(){
@@ -6,8 +6,8 @@ void changeScreens(){
   resetAlien();
   x=0;
   switch(currentScreen) {
-    case "startScreen":
-      currentScreen = "walkToOffice";
+    case "titleScreen":
+      currentScreen = "startScreen";
       break;
 
   }
