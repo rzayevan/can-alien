@@ -14,8 +14,10 @@ PImage dialogBox;
 PImage todoList;
 PImage bar;
 
+
 PImage[] clothesPics;
 PImage[] syrupPics;
+PImage[] downArrowPics;
 
 float x = 0;
 float martianX = 400;
@@ -48,6 +50,11 @@ void loadImages() {
   for (int i = 0; i < 5; i++) {
     syrupPics[i].resize(100, 80);
   }
+  
+  downArrowPics = new PImage[] {
+    loadImage("DownKey.png"),
+    loadImage("DownKeyRed.png")
+  };
 
   
   ground = loadImage("Ground.png");
@@ -65,12 +72,12 @@ void loadImages() {
   todoList = loadImage("TodoList.png");
   todoList.resize(500,600);
   bar = loadImage("Bar.png");
+  bar.resize(900, 750);
   
   //calm.loop();
 }
 
 void wearClothes() {
-  println("Help");
   martianRight = new Animation("ClothedRight_Walking", 2);
   martianLeft = new Animation("ClothedLeft_Walking", 2);
   idleRight = new Animation("ClothedRight_Idle", 2);
@@ -141,8 +148,7 @@ void keyPressed() {
     case LEFT:
       state="left";
       break;
-    case UP:
-      
+    case UP:   
       if (currentScreen != "level2") {
         if(martianY>=450 || onPlatform()){
           jumpSpeed = -20;
@@ -153,6 +159,7 @@ void keyPressed() {
       break;
     case DOWN:
       if (currentScreen == "level2" && state == "idleRight") {
+        gameStart = true;
         level2DownCounter++;
         updateSyrupCounter();
       }
@@ -168,7 +175,7 @@ void keyPressed() {
       else if (currentScreen == "level2" && !level2DialogueFinished) {
         level2DialogueCounter++;
       }
-      else if (currentScreen == "level2" && !level2GoToNext) {
+      else if (currentScreen == "level2" && level2Win && !level2GoToNext) {
         updateLevel2Win();
       }
       break;
