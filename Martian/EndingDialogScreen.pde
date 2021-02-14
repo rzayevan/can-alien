@@ -9,7 +9,7 @@ boolean drawDialogBox = true;
 
 void endingDialogScreenSetup()
 {
-  yPosSpaceship = 200;
+  yPosSpaceship = 100;
   beamPosY = 300;
 }
 
@@ -69,11 +69,11 @@ void endingDialogScreenDraw()
 
 void drawBeamUpAlien()
 {
-  image(beam, 350 + 50, beamPosY + 100);
+  image(beam, 400, beamPosY);
   martianRight.display(martianX, beamUpPosY, 0.1);
   image(spaceship, spaceshipX + 50, yPosSpaceship);
 
-  if (beamUpPosY > 290)
+  if (beamUpPosY > 250)
   {
     beamUpPosY -= 1;
   } else
