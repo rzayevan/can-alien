@@ -13,6 +13,7 @@ PImage beam;
 PImage dialogBox;
 PImage todoList;
 PImage mountains;
+PImage bar;
 
 PImage[] clothesPics;
 PImage[] syrupPics;
@@ -65,10 +66,18 @@ void loadImages() {
   dialogBox.resize(900, 100);
   todoList = loadImage("TodoList.png");
   todoList.resize(500,600);
+  bar = loadImage("Bar.png");
   
   //calm.loop();
 }
 
+void wearClothes() {
+  println("Help");
+  martianRight = new Animation("ClothedRight_Walking", 2);
+  martianLeft = new Animation("ClothedLeft_Walking", 2);
+  idleRight = new Animation("ClothedRight_Idle", 2);
+  idleLeft = new Animation("ClothedLeft_Idle", 2);
+}
 
 void drawAlien(boolean moves){
   if(moves){

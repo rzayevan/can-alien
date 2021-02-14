@@ -10,10 +10,14 @@ boolean level2DialogueFinished = false;
 boolean level2Win = false;
 boolean level2GoToNext = false;
 
+void level2Setup() {
+  wearClothes();
+}
+
 void level2(){
 
   for(int i = 0; i<15; i+=1){
-    image(spaceBg, -x+i*spaceBg.width,0);
+    image(bar, -x+i*spaceBg.width,0);
     image(ground,-x+i*ground.width,500);
   }
   
