@@ -1,4 +1,5 @@
 PImage hockeyBg;
+PImage alien;
 PImage ddr_blank;
 PImage ddr_left;
 PImage ddr_right;
@@ -26,6 +27,8 @@ void hockeyScreenSetup() {
   size(900, 700);
   hockeyBg = loadImage("HockeyRinkBackground.png");
   hockeyBg.resize(900, 700);
+  alien = loadImage("LeftIdle1.png");
+  alien.resize(100, 150);
   ddr_blank = loadImage("DDR_TopPanel.png");
   ddr_left = loadImage("DDR_LeftArrow.png");
   ddr_right = loadImage("DDR_RightArrow.png");
@@ -39,6 +42,7 @@ void hockeyScreenSetup() {
 
 void hockeyScreenDraw() {  
   image(hockeyBg, 0,0);
+  image(alien, 520,-3);
   textFont(font, 40);
   image(ddr_blank, 50,310);
   
@@ -46,7 +50,7 @@ void hockeyScreenDraw() {
   text("Score: ", 700, 320);
   text(str(score), 820, 320);
   
-  if (score >= 500) {
+  if (score >= 300) {
     fill(0,255,0);
     hockeyDialog();
   } else {
@@ -103,5 +107,7 @@ void hockeyDialog()
        fill(0,0,0);
        text("Curious. Very curious.", 40, 570);
        break;
+    case 4:
+       fade();
   }
 }
