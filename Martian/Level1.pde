@@ -34,7 +34,11 @@ void level1(){
   
   //Drawing platforms
   for(int i = 0; i<platforms.length; i+=1){
-    rect(platforms[i][0]-x,platforms[i][1],platforms[i][2],30);
+    noFill();
+    stroke(255);
+    strokeWeight(2);
+    image(platformGround,platforms[i][0]-x,platforms[i][1]-5);
+    rect(platforms[i][0]-x,platforms[i][1]+5,platforms[i][2],19);
   }
   
   

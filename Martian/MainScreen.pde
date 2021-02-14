@@ -30,7 +30,8 @@ void loadImages() {
   clothesPics = new PImage[] {loadImage("Hat.png"),loadImage("Coat.png"),loadImage("Scarf.png")};
   
   ground = loadImage("Ground.png");
-  
+  platformGround = loadImage("Ground.png");
+  platformGround.resize(200,30);
   //calm = new SoundFile(this, "Retroland_Recital.wav"); 
   //bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
   //zen = new SoundFile(this, "Digital_Zen.wav"); 
