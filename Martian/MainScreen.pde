@@ -1,6 +1,5 @@
 PImage calgary;
 PImage office;
-PImage ground;
 PImage platformGround;
 PImage HQ;
 PImage cityHall;
@@ -8,6 +7,7 @@ PImage pipe;
 PImage smallPipe;
 PImage emptyPipe;
 PImage bus;
+PImage ground;
 
 PImage[] clothesPics;
 
@@ -28,6 +28,8 @@ void loadImages() {
   idleLeft = new Animation("LeftIdle",2);
   
   clothesPics = new PImage[] {loadImage("Hat.png"),loadImage("Coat.png"),loadImage("Scarf.png")};
+  
+  ground = loadImage("Ground.png");
   
   //calm = new SoundFile(this, "Retroland_Recital.wav"); 
   //bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
