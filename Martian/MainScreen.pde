@@ -147,12 +147,20 @@ void keyPressed() {
         level2DownCounter++;
         updateSyrupCounter();
       }
-      state = "down";
+      else if (currentScreen == "hockeyScreen") {
+        state = "down";
+    }
     case ENTER:
       started = true;
       if(currentScreen == "spaceshipScreen" && startDialog)
       {
        spaceshipDialogCounter++; 
+      }
+      else if (currentScreen == "level2" && !level2DialogueFinished) {
+        level2DialogueCounter++;
+      }
+      else if (currentScreen == "level2" && !level2GoToNext) {
+        updateLevel2Win();
       }
       break;
   }
