@@ -13,7 +13,9 @@ void setup() {
   loadImages();
   titleScreenSetup();
   frameRate(60);
+  
   s = new Sound(this);
+  musicFile.loop();
 }
 
 void draw() {
