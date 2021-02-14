@@ -3,7 +3,7 @@ String currentScreen = "startScreen";
 
 void changeScreens(){
   resetFade();
-  resetCow();
+  resetAlien();
   x=0;
   switch(currentScreen) {
     case "startScreen":
@@ -11,5 +11,4 @@ void changeScreens(){
       break;
 
   }
-
 }
