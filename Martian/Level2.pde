@@ -4,10 +4,10 @@ float syrupCoordinatesY = 525;
 int level2DownCounter = 1;
 int syrupLevel = 0;
 
-int level2DialogueCounter1 = 0; 
+int level2DialogueCounter1 = 0;
 boolean level2DialogueFinished1 = false;
 
-int level2DialogueCounter2 = 0; 
+int level2DialogueCounter2 = 0;
 boolean level2DialogueFinished2 = false;
 
 boolean level2Win = false;
@@ -25,6 +25,7 @@ void level2Setup() {
   wearClothes();
   syrupCoordinatesY = martianY + 60;
   instructionArrowCoordinatesY = martianY - 80;
+  dialogBox.resize(900, 100);
 }
 
 void level2(){
@@ -32,23 +33,23 @@ void level2(){
   for(int i = 0; i<15; i+=1){
     image(bar, -x+i*spaceBg.width, 0);
   }
-  
-  image(syrupPics[syrupLevel], syrupCoordinatesX, syrupCoordinatesY);
-  
-  
-  level2DrawAlien();
-  
 
-  
+  image(syrupPics[syrupLevel], syrupCoordinatesX, syrupCoordinatesY);
+
+
+  level2DrawAlien();
+
+
+
   if(!level2DialogueFinished1)
   {
-   level2Dialogue1(); 
+   level2Dialogue1();
   }
   else if (level2Win) {
-    
-    level2Dialogue2(); 
-    
-    //Go to next page  
+
+    level2Dialogue2();
+
+    //Go to next page
     if(level2Win && level2DialogueFinished2 && level2GoToNext){
       fade();
     }
@@ -61,13 +62,13 @@ void level2(){
     if (!level2Win) {
       drawArrow();
     }
-    
+
    if (syrupLevel >= 4) {
       level2Win = true;
     }
-    
+
   }
-  
+
   level2FrameCounter++;
 }
 
@@ -76,8 +77,8 @@ void drawArrow() {
      level2FrameCounter = 0;
      level2ArrowIndex = (level2ArrowIndex == 0) ? 1 : 0;
    }
-  
-   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, instructionArrowCoordinatesY); 
+
+   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, instructionArrowCoordinatesY);
 }
 
 void updateSyrupCounter() {
@@ -91,14 +92,14 @@ void updateLevel2Win() {
     level2GoToNext = true;
   }
 }
-  
+
 
 void level2DrawAlien(){
 
    martianX = 450;
-  
+
   martianY+=jumpSpeed;
-  
+
   if(!onPlatform()){
     jumpSpeed+=1;
   }else{
@@ -107,9 +108,9 @@ void level2DrawAlien(){
     }else{
       jumpSpeed=0;
     }
-    
+
   }
-  
+
   switch(state) {
     case "right":
       martianRight.display(martianX, martianY, 0.1);
@@ -130,6 +131,7 @@ void level2DrawAlien(){
 
 void level2Dialogue1()
 {
+  textFont(font, 30);
   image(dialogBox, dialogPosX, dialogPosY);
   switch(level2DialogueCounter1)
   {
@@ -159,6 +161,7 @@ void level2Dialogue1()
 void level2Dialogue2()
 {
   image(dialogBox, dialogPosX, dialogPosY);
+  textFont(font, 30);
   switch(level2DialogueCounter2)
   {
      case 0:
