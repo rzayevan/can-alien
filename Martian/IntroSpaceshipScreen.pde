@@ -40,7 +40,7 @@ void introSpaceshipScreenDraw() {
   }
   
   //Go to next page  
-  if(spaceshipDialogCounter == spaceshipDialogMax){
+  if(spaceshipDialogCounter >= spaceshipDialogMax){
     fade();
   }
  

@@ -8,6 +8,7 @@ boolean finished = false;
 
 void endingDialogScreenDraw() 
 {
+  dialogBox.resize(900, 100);
   image(spaceBg, 0,0);
   image(dialogBox, dialogPosX, dialogPosY);
   textFont(font, 30);

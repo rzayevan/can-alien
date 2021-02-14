@@ -24,5 +24,8 @@ void changeScreens(){
    case "hockeyScreen":
       currentScreen="endingScreen";
       break;
+   case "endingScreen":
+      currentScreen="creditScreen";
+      break;
   }
 }
