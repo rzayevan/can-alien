@@ -1,5 +1,5 @@
 int syrupCoordinatesX = 525;
-int syrupCoordinatesY = 525;
+float syrupCoordinatesY = 525;
 
 int level2DownCounter = 1;
 int syrupLevel = 0;
@@ -14,7 +14,7 @@ boolean level2Win = false;
 boolean level2GoToNext = false;
 
 int instructionArrowCoordinatesX = 470;
-int instructionArrowCoordinatesY = 400;
+float instructionArrowCoordinatesY = 400;
 
 int level2FrameCounter = 0;
 int level2ArrowIndex = 0;
@@ -23,6 +23,8 @@ boolean level2GameStart = false;
 
 void level2Setup() {
   wearClothes();
+  syrupCoordinatesY = martianY + 60;
+  instructionArrowCoordinatesY = martianY - 80;
 }
 
 void level2(){
@@ -31,7 +33,7 @@ void level2(){
     image(bar, -x+i*spaceBg.width, 0);
   }
   
-  image(syrupPics[syrupLevel], syrupCoordinatesX, martianY + 60);
+  image(syrupPics[syrupLevel], syrupCoordinatesX, syrupCoordinatesY);
   
   
   level2DrawAlien();
@@ -42,7 +44,7 @@ void level2(){
   {
    level2Dialogue1(); 
   }
-  if (level2Win) {
+  else if (level2Win) {
     
     level2Dialogue2(); 
     
@@ -52,32 +54,30 @@ void level2(){
     }
   }
   else {
-    if (!level2GameStart) {
-        fill(0,255,0);
-        text("PRESS DOWN TO DRINK!", 350,250);
-        drawArrow();
+    fill(0,255,0);
+    text("Press down to drink!", 350,250);
+    drawArrow();
+
+    if (!level2Win) {
+      drawArrow();
     }
-    else {
-      if (!level2Win) {
-        drawArrow();
-      }
-      
-     if (syrupLevel >= 4) {
-        level2Win = true;
-      }
+    
+   if (syrupLevel >= 4) {
+      level2Win = true;
     }
+    
   }
   
   level2FrameCounter++;
 }
 
 void drawArrow() {
-   if (level2FrameCounter > 40) {
+   if (level2FrameCounter > 20) {
      level2FrameCounter = 0;
      level2ArrowIndex = (level2ArrowIndex == 0) ? 1 : 0;
    }
   
-   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, martianY - 80); 
+   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, instructionArrowCoordinatesY); 
 }
 
 void updateSyrupCounter() {
@@ -87,7 +87,6 @@ void updateSyrupCounter() {
 }
 
 void updateLevel2Win() {
-  println("why");
   if (level2Win) {
     level2GoToNext = true;
   }
