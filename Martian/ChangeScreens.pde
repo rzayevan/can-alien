@@ -7,7 +7,7 @@ void changeScreens(){
   x=0;
   switch(currentScreen) {
     case "titleScreen":
-      currentScreen = "level1";
+      currentScreen = "level2";
       break;
 
   }

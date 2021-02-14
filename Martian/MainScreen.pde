@@ -10,6 +10,7 @@ PImage bus;
 PImage ground;
 
 PImage[] clothesPics;
+PImage[] syrupPics;
 
 int x = 0;
 float martianX = 400;
@@ -28,6 +29,19 @@ void loadImages() {
   idleLeft = new Animation("LeftIdle",2);
   
   clothesPics = new PImage[] {loadImage("Hat.png"),loadImage("Coat.png"),loadImage("Scarf.png")};
+  
+  syrupPics = new PImage[] {
+    loadImage("Straw1.png"),
+    loadImage("Straw2.png"),
+    loadImage("Straw3.png"),
+    loadImage("Straw4.png"),
+    loadImage("Straw5.png"),
+  };
+  
+  for (int i = 0; i < 5; i++) {
+    syrupPics[i].resize(100, 80);
+  }
+
   
   ground = loadImage("Ground.png");
   
@@ -90,18 +104,37 @@ void resetAlien(){
 void keyPressed() {
   switch(keyCode) {    
     case RIGHT:
-      speed = 2;
+      if (currentScreen != "level2") {
+        speed = 2;
+      }
+      else {
+        speed = 0;
+      }
+      
       state = "right";
       break;
     case LEFT:
-      speed = -2;
+       if (currentScreen != "level2") {
+        speed = -2;
+      }
+      else {
+        speed = 0;
+      }
       state="left";
       break;
     case UP:
-      if(martianY>=450 || onPlatform()){
-        jumpSpeed = -20;
+      if (currentScreen != "level2") {
+        if(martianY>=450 || onPlatform()){
+          jumpSpeed = -20;
+        }
       }
       break;
+    case DOWN:
+      println(state);
+      if (currentScreen == "level2" && state == "idleRight") {
+        level2DownCounter++;
+        updateSyrupCounter();
+      }
     case ENTER:
       started = true;
       break;
