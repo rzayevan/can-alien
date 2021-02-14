@@ -4,8 +4,9 @@ int[][] clothes = new int[][] {{500,350,0,0},{400,350,1,0}};
 int collected = 0;
 
 void level1(){
-  for(int i = 0; i<3; i+=1){
+  for(int i = 0; i<15; i+=1){
     image(spaceBg, -x+i*spaceBg.width,0);
+    image(ground,-x+i*ground.width,465);
   }
   if(x>=0 && speed<0){
     x+=speed;
