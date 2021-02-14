@@ -4,8 +4,11 @@ int syrupCoordinatesY = 525;
 int level2DownCounter = 1;
 int syrupLevel = 0;
 
-int level2DialogueCounter = 0; 
-boolean level2DialogueFinished = false;
+int level2DialogueCounter1 = 0; 
+boolean level2DialogueFinished1 = false;
+
+int level2DialogueCounter2 = 0; 
+boolean level2DialogueFinished2 = false;
 
 boolean level2Win = false;
 boolean level2GoToNext = false;
@@ -16,7 +19,7 @@ int instructionArrowCoordinatesY = 400;
 int level2FrameCounter = 0;
 int level2ArrowIndex = 0;
 
-boolean gameStart = false;
+boolean level2GameStart = false;
 
 void level2Setup() {
   wearClothes();
@@ -33,27 +36,34 @@ void level2(){
   
   level2DrawAlien();
   
-  if (syrupLevel >= 4) {
-    fill(0,255,0);
-    text("YAY!", 450,250);
-    level2Win = true;
-  }
+
   
-  if(!level2DialogueFinished)
+  if(!level2DialogueFinished1)
   {
-   level2Dialogue(); 
+   level2Dialogue1(); 
+  }
+  if (level2Win) {
+    
+    level2Dialogue2(); 
+    
+    //Go to next page  
+    if(level2Win && level2DialogueFinished2 && level2GoToNext){
+      fade();
+    }
   }
   else {
-    if (!gameStart) {
+    if (!level2GameStart) {
         fill(0,255,0);
-        text("DRINK!", 450,250);
+        text("PRESS DOWN TO DRINK!", 350,250);
+        drawArrow();
     }
     else {
-      drawArrow();
-
-      //Go to next page  
-      if(level2Win && level2GoToNext){
-        fade();
+      if (!level2Win) {
+        drawArrow();
+      }
+      
+     if (syrupLevel >= 4) {
+        level2Win = true;
       }
     }
   }
@@ -71,7 +81,7 @@ void drawArrow() {
 }
 
 void updateSyrupCounter() {
-   if (syrupLevel < 4 && level2DownCounter % 5 == 0 && level2DialogueFinished) {
+   if (syrupLevel < 4 && level2DownCounter % 5 == 0 && level2DialogueFinished1) {
     syrupLevel++;
   }
 }
@@ -119,10 +129,10 @@ void level2DrawAlien(){
   }
 }
 
-void level2Dialogue()
+void level2Dialogue1()
 {
   image(dialogBox, dialogPosX, dialogPosY);
-  switch(level2DialogueCounter)
+  switch(level2DialogueCounter1)
   {
      case 0:
        fill(0,0,0);
@@ -142,7 +152,41 @@ void level2Dialogue()
        fill(0,0,0);
        text("I’ve heard that Canadian terrans practically subsist on tree sap alone.", dialogTextPosX, dialogTextPosY);
        text("Wonder what all the fuss is about...", dialogTextPosX, dialogTextPosY + 35);
-       level2DialogueFinished = true;
+       level2DialogueFinished1 = true;
+       break;
+  }
+}
+
+void level2Dialogue2()
+{
+  image(dialogBox, dialogPosX, dialogPosY);
+  switch(level2DialogueCounter2)
+  {
+     case 0:
+       fill(0,0,0);
+       text("Well, honestly I don’t quite see the appeal. ", dialogTextPosX, dialogTextPosY);
+       text("That was kind of painful.", dialogTextPosX, dialogTextPosY + 35);
+       break;
+     case 1:
+       fill(0,0,0);
+       text("All that tobogganing must really toughen Canadians", dialogTextPosX, dialogTextPosY);
+       text("up if they’re able to eat this stuff every day. ", dialogTextPosX, dialogTextPosY + 35);
+       break;
+     case 2:
+       fill(0,0,0);
+       text("Or maybe it’s just because they ride polar ", dialogTextPosX, dialogTextPosY);
+       text("bears to work.", dialogTextPosX, dialogTextPosY + 35);
+       break;
+    case 3:
+       fill(0,0,0);
+       text("Speaking of work, how does that Terran saying go? ", dialogTextPosX, dialogTextPosY);
+       text("Work hard, play hard!", dialogTextPosX, dialogTextPosY + 35);
+       break;
+     case 4:
+       fill(0,0,0);
+       text("And what could be more fun than hockey?", dialogTextPosX, dialogTextPosY);
+       text("Canada's createst pastime!", dialogTextPosX, dialogTextPosY + 35);
+       level2DialogueFinished2 = true;
        break;
   }
 }
