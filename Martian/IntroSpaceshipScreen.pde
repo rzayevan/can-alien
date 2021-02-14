@@ -1,6 +1,13 @@
 int yPosSpaceship = 0;
-boolean nextPage = false;
+boolean startDialog = false;
 int spaceshipDialogCounter = 0;
+int beamPosY = 300;
+int spaceshipDialogMax = 3;
+
+int dialogPosX = 0;
+int dialogPosY = 600;
+int dialogTextPosX = 30;
+int dialogTextPosY = 650;
 
 void introSpaceshipScreenSetup() {
   size(900, 700);
@@ -17,14 +24,45 @@ void introSpaceshipScreenDraw() {
   }
   else
   {
-     image(beam, 80, 380);
+    if(beamPosY < 380)
+    {
+      beamPosY += 10;
+    }
+     image(beam, 400, beamPosY);
      drawAlien(false);
+     startDialog = true;
   }
-  image(spaceship, 0, yPosSpaceship);
-
+  image(spaceship, 300, yPosSpaceship);
   
-  if(spaceshipDialogCounter == 1){
+  if(startDialog)
+  {
+   spaceshipDialog(); 
+  }
+  
+  //Go to next page  
+  if(spaceshipDialogCounter == spaceshipDialogMax){
     fade();
   }
  
+}
+
+void spaceshipDialog()
+{
+  image(dialogBox, dialogPosX, dialogPosY);
+  switch(spaceshipDialogCounter)
+  {
+     case 0:
+       fill(0,0,0);
+       text("Oh Canada. The great white north. At last we meet.", dialogTextPosX, dialogTextPosY);
+       break;
+     case 1:
+       fill(0,0,0);
+       text("I've been looking forward to this vacation for the ", dialogTextPosX, dialogTextPosY);
+       text("last five sol-cycles!", dialogTextPosX, dialogTextPosY + 35);
+       break;
+     case 2:
+       fill(0,0,0);
+       text("Alright, let's not waste a single nanosecond!", dialogTextPosX, dialogTextPosY);
+       break;
+  }
 }

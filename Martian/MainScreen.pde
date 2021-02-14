@@ -10,6 +10,7 @@ PImage bus;
 PImage ground;
 PImage spaceship;
 PImage beam;
+PImage dialogBox;
 
 PImage[] clothesPics;
 PImage[] syrupPics;
@@ -57,7 +58,8 @@ void loadImages() {
   spaceship = loadImage("Spaceship.png");
   beam = loadImage("Beam.png");
   beam.resize(200, 200);
-
+  dialogBox = loadImage("DialogBox.png");
+  dialogBox.resize(900, 100);
 
   //calm.loop();
 }
@@ -148,7 +150,7 @@ void keyPressed() {
       }
     case ENTER:
       started = true;
-      if(currentScreen == "spaceshipScreen")
+      if(currentScreen == "spaceshipScreen" && startDialog)
       {
        spaceshipDialogCounter++; 
       }
