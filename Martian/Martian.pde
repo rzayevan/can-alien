@@ -11,7 +11,7 @@ void draw() {
     case "titleScreen":
         titleScreenDraw();
         break;
-    case "startScreen":
+    case "level1":
         level1();
         break;
   }

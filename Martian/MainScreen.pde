@@ -9,6 +9,8 @@ PImage smallPipe;
 PImage emptyPipe;
 PImage bus;
 
+PImage[] clothesPics;
+
 int x = 0;
 float martianX = 400;
 float martianY = 350;
@@ -24,6 +26,8 @@ void loadImages() {
   martianLeft = new Animation("Left", 2);
   idleRight = new Animation("Idle",2);
   idleLeft = new Animation("LeftIdle",2);
+  
+  clothesPics = new PImage[] {loadImage("Hat.png"),loadImage("Coat.png"),loadImage("Scarf.png")};
   
   //calm = new SoundFile(this, "Retroland_Recital.wav"); 
   //bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
@@ -46,7 +50,7 @@ void drawAlien(boolean moves){
   }
   martianY+=jumpSpeed;
   
-  if(martianY<=350){
+  if(martianY<=350 && !onPlatform()){
     jumpSpeed+=1;
   }else{
     jumpSpeed=0;
@@ -70,6 +74,8 @@ void drawAlien(boolean moves){
   }
 }
 
+
+
 void resetAlien(){
   martianX = 400;
 }
@@ -77,16 +83,16 @@ void resetAlien(){
 void keyPressed() {
   switch(keyCode) {    
     case RIGHT:
-      speed = 1;
+      speed = 2;
       state = "right";
       break;
     case LEFT:
-      speed = -1;
+      speed = -2;
       state="left";
       break;
     case UP:
-      if(martianY>=350){
-        jumpSpeed = -15;
+      if(martianY>=350 || onPlatform()){
+        jumpSpeed = -20;
       }
       break;
     case ENTER:
