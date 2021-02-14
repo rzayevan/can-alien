@@ -30,27 +30,33 @@ void endingDialogScreenDraw()
     switch(endingDialogCounter)
     {
     case 0:
+              drawAlienEnd = true;
+
       fill(0, 0, 0);
       text("Mysteries to be solved another time, I suppose. Looks like I’ve", dialogTextPosX, dialogTextPosY);
       text("done everything on my list.", dialogTextPosX, dialogTextPosY + 35);
       break;
     case 1:
+      drawAlienEnd = true;
       text("Just in time too, the Sol’s gone down already.  Time to head home. ", dialogTextPosX, dialogTextPosY);
       break;
     case 2:
+      drawAlienEnd = true;
       text("Next time I’ll have to visit Mr. Horton and have one of his “double", dialogTextPosX, dialogTextPosY);
       text("doubles.”", dialogTextPosX, dialogTextPosY + 35);
       break;
     case 3 :
+      drawAlienEnd = true;
       text("Maybe Stanley will lend me his cup.  Perhaps the Queen would like to", dialogTextPosX, dialogTextPosY);
       text("join me.", dialogTextPosX, dialogTextPosY + 35);
       break;
     case 4 :
+      drawAlienEnd = true;
       text("So long for now Canada!  May you stay glorious and free.", dialogTextPosX, dialogTextPosY);
       break;
     default : 
-      drawDialogBox = false;
       drawAlienEnd = false;
+      drawDialogBox = false;
       if (!beamUpFinished)
       {
         drawBeamUpAlien();
