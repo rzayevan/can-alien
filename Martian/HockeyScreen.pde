@@ -96,27 +96,28 @@ void hockeyInstructions() {
 }
 
 void hockeyDialog() {
-  dialogBox.resize(900,200);
-  image(dialogBox, 0, 500);
+  //dialogBox.resize(900,200);
+  textFont(font, 30);
+  image(dialogBox, dialogPosX, dialogPosY);
   switch(hockeyDialogCounter) {
      case 0:
        fill(0,0,0);
-       text("Go team go!  What a thrilling sport!", 40, 570);
+       text("Go team go!  What a thrilling sport!", dialogTextPosX, dialogTextPosY);
        break;
      case 1:
        fill(0,0,0);
-       text("Although, I’m not sure how anyone was able", 40,570);
-       text("to play with both the teams apologizing to", 40, 570 + 45);
-       text("each other THE ENTIRE TIME.. ", 40, 570 + 90);
+       text("Although, I’m not sure how anyone was able to play with", dialogTextPosX, dialogTextPosY);
+       text("both the teams apologizing to each other THE ENTIRE TIME.", dialogTextPosX, dialogTextPosY + 35);
+       //text(" ", 40, 570 + 90);
        break;
      case 2:
        fill(0,0,0);
-       text("And what on Terra is up with that Stanley guy?", 40, 570);
-       text("Why is his cup so important? ", 40, 570 + 50);
+       text("And what on Terra is up with that Stanley guy?", dialogTextPosX, dialogTextPosY);
+       text("Why is his cup so important? ", dialogTextPosX, dialogTextPosY + 35);
        break;
      case 3:
        fill(0,0,0);
-       text("Curious. Very curious.", 40, 570);
+       text("Curious. Very curious.", dialogTextPosX, dialogTextPosY);
        break;
     case 4:
        fade();

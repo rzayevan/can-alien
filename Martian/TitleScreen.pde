@@ -12,9 +12,9 @@ void titleScreenSetup() {
 
 void titleScreenDraw() {
   image(spaceBg, 0,0);
-  textFont(font, 40);
+  textFont(font, 50);
   fill(0,255,0);
-  text("Illegal Alien", 350, 220);
+  text("Can-alien", 370, 220);
   fill(255,255,255);
   text("Press  Enter  To  Start", 270, 300);
   if(started){

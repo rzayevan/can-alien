@@ -141,8 +141,8 @@ void level2Dialogue1()
        break;
      case 1:
        fill(0,0,0);
-       text("I found some sort of goose jacket.  This is the", dialogTextPosX, dialogTextPosY);
-       text("pinnacle of Canadian fashion, I’m sure.", dialogTextPosX, dialogTextPosY + 35);
+       text("I found some sort of goose jacket.  This is the pinnacle", dialogTextPosX, dialogTextPosY);
+       text(" of Canadian fashion, I’m sure.", dialogTextPosX, dialogTextPosY + 35);
        break;
      case 2:
        fill(0,0,0);
@@ -171,13 +171,12 @@ void level2Dialogue2()
        break;
      case 1:
        fill(0,0,0);
-       text("All that tobogganing must really toughen Canadians", dialogTextPosX, dialogTextPosY);
-       text("up if they’re able to eat this stuff every day. ", dialogTextPosX, dialogTextPosY + 35);
+       text("All that tobogganing must really toughen Canadians up if  ", dialogTextPosX, dialogTextPosY);
+       text("they’re able to eat this stuff every day. ", dialogTextPosX, dialogTextPosY + 35);
        break;
      case 2:
        fill(0,0,0);
-       text("Or maybe it’s just because they ride polar ", dialogTextPosX, dialogTextPosY);
-       text("bears to work.", dialogTextPosX, dialogTextPosY + 35);
+       text("Or maybe it’s just because they ride polar bears to work. ", dialogTextPosX, dialogTextPosY);
        break;
     case 3:
        fill(0,0,0);
