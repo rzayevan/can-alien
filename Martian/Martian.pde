@@ -27,5 +27,8 @@ void draw() {
     case "endingScreen":
         endingDialogScreenDraw();
         break;
+    case "creditScreen":
+        drawCreditsScreen();
+        break;
   }
 }
