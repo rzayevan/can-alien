@@ -7,14 +7,16 @@ void changeScreens(){
   x=0;
   switch(currentScreen) {
     case "titleScreen":
-      currentScreen = "startScreen";
+      introSpaceshipScreenSetup();
+      currentScreen = "spaceshipScreen";
       break;
-    case "startScreen":
+    case "spaceshipScreen":
       hockeyScreenSetup();
-      currentScreen = "hockeyScreen";
+      currentScreen="level2";
       break;
     case "level2":
       level2();
-
+      currentScreen="hockeyScreen";
+      break;
   }
 }
