@@ -5,6 +5,7 @@ int beamUpPosY = 450;
 boolean beamUpFinished = false;
 int spaceshipX = 250;
 boolean finished = false;
+boolean drawDialogBox = true;
 
 void endingDialogScreenSetup()
 {
@@ -17,7 +18,10 @@ void endingDialogScreenDraw()
 {
     dialogBox.resize(900, 100);
     image(mountains, 0, 0);
-    image(dialogBox, dialogPosX, dialogPosY);
+    if(drawDialogBox)
+    {
+      image(dialogBox, dialogPosX, dialogPosY);
+    }
     textFont(font, 30);
     if (drawAlienEnd)
     {
@@ -41,8 +45,11 @@ void endingDialogScreenDraw()
       text("Maybe Stanley will lend me his cup.  Perhaps the Queen would like to", dialogTextPosX, dialogTextPosY);
       text("join me.", dialogTextPosX, dialogTextPosY + 35);
       break;
-    default : 
+    case 4 :
       text("So long for now Canada!  May you stay glorious and free.", dialogTextPosX, dialogTextPosY);
+      break;
+    default : 
+      drawDialogBox = false;
       drawAlienEnd = false;
       if (!beamUpFinished)
       {

@@ -88,7 +88,6 @@ void updateSyrupCounter() {
 }
 
 void updateLevel2Win() {
-  println("why");
   if (level2Win) {
     level2GoToNext = true;
   }
@@ -132,6 +131,7 @@ void level2DrawAlien(){
 
 void level2Dialogue1()
 {
+  textFont(font, 30);
   image(dialogBox, dialogPosX, dialogPosY);
   switch(level2DialogueCounter1)
   {
