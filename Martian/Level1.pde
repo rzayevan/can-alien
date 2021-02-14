@@ -16,8 +16,8 @@ void level1(){
   
   textFont(font, 40);
   fill(0,255,0);
-  text("x"+str(collected), 800, 50);
-  
+  text("Clothing: x"+str(collected), 700, 50);
+  text("Collect all the clothing!!!", 200, 50);
   
   //Drawing Clothes and Collecting Clothes
   for(int i = 0; i<clothes.length; i+=1){
