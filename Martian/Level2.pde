@@ -1,5 +1,5 @@
 int syrupCoordinatesX = 525;
-int syrupCoordinatesY = 510;
+int syrupCoordinatesY = 525;
 
 int level2DownCounter = 1;
 int syrupLevel = 0;
@@ -10,6 +10,14 @@ boolean level2DialogueFinished = false;
 boolean level2Win = false;
 boolean level2GoToNext = false;
 
+int instructionArrowCoordinatesX = 470;
+int instructionArrowCoordinatesY = 400;
+
+int level2FrameCounter = 0;
+int level2ArrowIndex = 0;
+
+boolean gameStart = false;
+
 void level2Setup() {
   wearClothes();
 }
@@ -17,11 +25,11 @@ void level2Setup() {
 void level2(){
 
   for(int i = 0; i<15; i+=1){
-    image(bar, -x+i*spaceBg.width,0);
-    image(ground,-x+i*ground.width,500);
+    image(bar, -x+i*spaceBg.width, 0);
   }
   
-  image(syrupPics[syrupLevel], syrupCoordinatesX, syrupCoordinatesY);
+  image(syrupPics[syrupLevel], syrupCoordinatesX, martianY + 60);
+  
   
   level2DrawAlien();
   
@@ -35,12 +43,31 @@ void level2(){
   {
    level2Dialogue(); 
   }
-  
-   //Go to next page  
-  if(level2Win && level2GoToNext){
-    fade();
+  else {
+    if (!gameStart) {
+        fill(0,255,0);
+        text("DRINK!", 450,250);
+    }
+    else {
+      drawArrow();
+
+      //Go to next page  
+      if(level2Win && level2GoToNext){
+        fade();
+      }
+    }
   }
   
+  level2FrameCounter++;
+}
+
+void drawArrow() {
+   if (level2FrameCounter > 40) {
+     level2FrameCounter = 0;
+     level2ArrowIndex = (level2ArrowIndex == 0) ? 1 : 0;
+   }
+  
+   image(downArrowPics[level2ArrowIndex], instructionArrowCoordinatesX, martianY - 80); 
 }
 
 void updateSyrupCounter() {
@@ -50,6 +77,7 @@ void updateSyrupCounter() {
 }
 
 void updateLevel2Win() {
+  println("why");
   if (level2Win) {
     level2GoToNext = true;
   }
