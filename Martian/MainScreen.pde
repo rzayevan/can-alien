@@ -12,6 +12,7 @@ PImage spaceship;
 PImage beam;
 PImage dialogBox;
 PImage todoList;
+PImage mountains;
 
 PImage[] clothesPics;
 PImage[] syrupPics;
@@ -52,6 +53,7 @@ void loadImages() {
   ground = loadImage("Ground.png");
   platformGround = loadImage("Ground.png");
   platformGround.resize(200,30);
+  mountains = loadImage("MountainBackground.png");
   //calm = new SoundFile(this, "Retroland_Recital.wav"); 
   //bezos = new SoundFile(this, "Conferring_with_an_Old_Master.wav"); 
   //zen = new SoundFile(this, "Digital_Zen.wav"); 
